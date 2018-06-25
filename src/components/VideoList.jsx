@@ -1,10 +1,7 @@
-var VideoList = () => (
-  <div className="video-list">
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+var VideoList = ({videos, playVid}) => (
+  <div className="video-list">{videos.map( video => {
+    return (<VideoListEntry video={video} key={video.etag} playVid={playVid}/>)
+})}
   </div>
 );
 
