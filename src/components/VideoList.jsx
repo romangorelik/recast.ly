@@ -1,9 +1,11 @@
-var VideoList = ({videos, playVid}) => (
-  <div className="video-list">{videos.map( video => {
-    return (<VideoListEntry video={video} key={video.etag} playVid={playVid}/>)
-})}
-  </div>
-);
+var VideoList = ({videos, playVid}) => {
+  return (<div className="video-list">{
+    videos.map(video => {
+      return (<VideoListEntry video={video} key={video.etag} playVid={playVid}/>);
+    })
+  }
+  </div>);
+};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
