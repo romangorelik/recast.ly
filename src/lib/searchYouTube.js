@@ -8,6 +8,7 @@ var searchYouTube = (options, callback) => {
       maxResults: options.max || 5,
       key: options.key, videoEmbeddable: true},
     success: function(data){
+      console.log(this.url);
       callback(data);
     },
     error: function(error){
