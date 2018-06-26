@@ -1,6 +1,7 @@
-var Search = () => (
+var Search = ({searchYouTube, liveVideo}) => (
   <div className="search-bar form-inline">
-    <input className="form-control" type="text" />
+    <input className="form-control" type="text" 
+      onChange={(e) => searchYouTube({query: e.target.value, key: window.YOUTUBE_API_KEY}, liveVideo)}/>
     <button className="btn hidden-sm-down">
       <span className="glyphicon glyphicon-search"></span>
     </button>

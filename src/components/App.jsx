@@ -7,17 +7,22 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      thing: true,
       videos: window.exampleVideoData.slice(),
       curVid: window.exampleVideoData[0]
     };
     this.playVideo = this.playVideo.bind(this);
+    this.liveVideo = this.liveVideo.bind(this);
+    this.searchYouTube = window.searchYouTube;
   }
 
-  playVideo(e) {
-    this.state.curVid = $(e.target).text();
-    console.log(this.state.curVid);
+  playVideo(video) {
+    this.setState({
+      curVid: video
+    });
+  }
 
+  liveVideo(data){
+    this.setState({videos: data.items, curVid: data.items[0]});
   }
 
   render() {
@@ -25,9 +30,7 @@ class App extends React.Component {
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
           <div>
-            <h5>
-              <em>search</em>
-              view goes here</h5>
+            <Search searchYouTube={this.searchYouTube} liveVideo={this.liveVideo}/>
           </div>
         </div>
       </nav>
@@ -40,5 +43,4 @@ class App extends React.Component {
       </div>
     </div>);
   }
-
 }

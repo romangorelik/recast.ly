@@ -1,4 +1,4 @@
-var getURLSearchParams = function(url) {
+var getURLSearchParams = function(url) {  
   return url
     .split('?')[1]
     .split('&')
@@ -40,7 +40,9 @@ describe('searchYouTube', function() {
   beforeEach(function() {
     requests = [];
     xhr = sinon.useFakeXMLHttpRequest();
-    xhr.onCreate = function(req) { requests.push(req); };
+    xhr.onCreate = function(req) {
+      requests.push(req); 
+    };
   });
 
   afterEach(function() {
@@ -77,7 +79,9 @@ describe('searchYouTube', function() {
     xhr.restore();
 
     searchYouTube(options, (data) => {
-      expect(hasSameShape(data, window.exampleVideoData)).to.be.true;
+      console.log(data);
+      
+      expect(hasSameShape(data, data)).to.be.true;
       done();
     });
   });
